@@ -1,9 +1,32 @@
 <template lang="html">
-  <div id="app">
-    <app-header></app-header>
+  <v-app>
+    <v-navigation-drawer v-model="sideNav">
+      <v-list>
+        <v-list-tile>
+          <v-list-tile-action>
+            View meetups
+          </v-list-tile-action>
+          <v-list-tile-content>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar dark class="indigo lighten-1">
+      <v-toolbar-side-icon
+        @click.native.stop="sideNav = !sideNav"
+        class="hidden-sm-and-up"
+      ></v-toolbar-side-icon>
+      <v-toolbar-title>Webruden</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-xs-only">
+        <v-btn flat>
+          View Meetups
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
     <app-content></app-content>
     <app-footer></app-footer>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -14,17 +37,17 @@ import Footer from './components/Footer.vue';
 export default {
   name: 'app',
   components: {
-    'app-header': Header,
+    // 'app-header': Header,
     'app-content': Content,
     'app-footer': Footer
   },
   data() {
     return {
-      msg: 'vue project'
+      sideNav: false
     }
   }
 }
 </script>
 
-<style lang="css">
+<style lang="sass">
 </style>
