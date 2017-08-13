@@ -2,11 +2,12 @@
   <v-app>
     <v-navigation-drawer v-model="sideNav">
       <v-list>
-        <v-list-tile>
+        <v-list-tile v-for="item in menuItems" :key="item.title">
           <v-list-tile-action>
-            View meetups
+            <v-icon>{{item.icon}}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
+            {{item.title}}
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -19,8 +20,9 @@
       <v-toolbar-title>Webruden</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat>
-          View Meetups
+        <v-btn flat v-for="item in menuItems" :key="item.title">
+          <v-icon left dark>{{ item.icon }}</v-icon>
+          {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -43,7 +45,14 @@ export default {
   },
   data() {
     return {
-      sideNav: false
+      sideNav: false,
+      menuItems: [
+        { icon: 'fa-users fa-2x', title: 'View Meetups' },
+        { icon: 'fa-map-marker fa-2x', title: 'Organize Meetup' },
+        { icon: 'fa-address-card fa-2x', title: 'Profile' },
+        { icon: 'fa-user-circle fa-2x', title: 'Sign up' },
+        { icon: 'fa-unlock-alt fa-2x', title: 'Sign in' }
+      ]
     }
   }
 }

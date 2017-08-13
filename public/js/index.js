@@ -21794,6 +21794,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -21808,7 +21810,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      sideNav: false
+      sideNav: false,
+      menuItems: [{ icon: 'fa-users fa-2x', title: 'View Meetups' }, { icon: 'fa-map-marker fa-2x', title: 'Organize Meetup' }, { icon: 'fa-address-card fa-2x', title: 'Profile' }, { icon: 'fa-user-circle fa-2x', title: 'Sign up' }, { icon: 'fa-unlock-alt fa-2x', title: 'Sign in' }]
     };
   }
 });
@@ -22178,7 +22181,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "sideNav"
     }
-  }, [_c('v-list', [_c('v-list-tile', [_c('v-list-tile-action', [_vm._v("\n          View meetups\n        ")]), _vm._v(" "), _c('v-list-tile-content')], 1)], 1)], 1), _vm._v(" "), _c('v-toolbar', {
+  }, [_c('v-list', _vm._l((_vm.menuItems), function(item) {
+    return _c('v-list-tile', {
+      key: item.title
+    }, [_c('v-list-tile-action', [_c('v-icon', [_vm._v(_vm._s(item.icon))])], 1), _vm._v(" "), _c('v-list-tile-content', [_vm._v("\n          " + _vm._s(item.title) + "\n        ")])], 1)
+  }))], 1), _vm._v(" "), _c('v-toolbar', {
     staticClass: "indigo lighten-1",
     attrs: {
       "dark": ""
@@ -22193,11 +22200,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('v-toolbar-title', [_vm._v("Webruden")]), _vm._v(" "), _c('v-spacer'), _vm._v(" "), _c('v-toolbar-items', {
     staticClass: "hidden-xs-only"
-  }, [_c('v-btn', {
-    attrs: {
-      "flat": ""
-    }
-  }, [_vm._v("\n        View Meetups\n      ")])], 1)], 1), _vm._v(" "), _c('app-content'), _vm._v(" "), _c('app-footer')], 1)
+  }, _vm._l((_vm.menuItems), function(item) {
+    return _c('v-btn', {
+      key: item.title,
+      attrs: {
+        "flat": ""
+      }
+    }, [_c('v-icon', {
+      attrs: {
+        "left": "",
+        "dark": ""
+      }
+    }, [_vm._v(_vm._s(item.icon))]), _vm._v("\n        " + _vm._s(item.title) + "\n      ")], 1)
+  }))], 1), _vm._v(" "), _c('app-content'), _vm._v(" "), _c('app-footer')], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

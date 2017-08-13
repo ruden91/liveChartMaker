@@ -19,5 +19,8 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "vue-material-design-icons": "^0.7.1"
   }
 }
