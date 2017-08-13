@@ -2,7 +2,12 @@
   <v-app>
     <v-navigation-drawer v-model="sideNav">
       <v-list>
-        <v-list-tile v-for="item in menuItems" :key="item.title">
+        <v-list-tile
+          v-for="item in menuItems"
+          :key="item.title"
+          router
+          :to="item.link"
+        >
           <v-list-tile-action>
             <v-icon>{{item.icon}}</v-icon>
           </v-list-tile-action>
@@ -17,15 +22,26 @@
         @click.native.stop="sideNav = !sideNav"
         class="hidden-sm-and-up"
       ></v-toolbar-side-icon>
-      <v-toolbar-title>Webruden</v-toolbar-title>
+      <v-toolbar-title>
+        <router-link to="/" tag="span" style="cursor:pointer">Webruden</router-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat v-for="item in menuItems" :key="item.title">
+        <v-btn
+          flat
+          v-for="item in menuItems" 
+          :key="item.title"
+          router
+          :to="item.link"
+        >
           <v-icon left dark>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
+    <main>
+      <router-view></router-view>
+    </main>
     <app-content></app-content>
     <app-footer></app-footer>
   </v-app>
@@ -47,11 +63,11 @@ export default {
     return {
       sideNav: false,
       menuItems: [
-        { icon: 'fa-users fa-2x', title: 'View Meetups' },
-        { icon: 'fa-map-marker fa-2x', title: 'Organize Meetup' },
-        { icon: 'fa-address-card fa-2x', title: 'Profile' },
-        { icon: 'fa-user-circle fa-2x', title: 'Sign up' },
-        { icon: 'fa-unlock-alt fa-2x', title: 'Sign in' }
+        { icon: 'fa-users fa-2x', title: 'View Meetups', link: '/meetups' },
+        { icon: 'fa-map-marker fa-2x', title: 'Organize Meetup', link: '/meetups/new' },
+        { icon: 'fa-address-card fa-2x', title: 'Profile', link: '/profile' },
+        { icon: 'fa-user-circle fa-2x', title: 'Sign up', link: '/signup' },
+        { icon: 'fa-unlock-alt fa-2x', title: 'Sign in', link: '/signin' }
       ]
     }
   }
